@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plant Shop</title>
+  </head>
+  <body class="bg-gray-800 text-white">
+    <div id="app">
+      <nav class="bg-gray-900 p-4 mb-6">
+        <div
+          class="container max-w-6xl mx-auto flex flex-col sm:flex-row gap-8 items-center"
+        >
+          <!-- Search Area -->
+          <div class="relative w-full">
+            <input
+              type="text"
+              id="search"
+              class="bg-gray-700 rounded-full p-2 pl-10 focus:w-full"
+              placeholder="Search Plants..."
+            />
+            <i
+              data-lucide="search"
+              class="absolute left-2 top-1/2 -translate-y-1/2"
+            ></i>
+          </div>
+
+          <!-- Cart Icon -->
+          <div class="relative text-center">
+            <i data-lucide="shopping-cart"></i>
+            <small
+              id="cart-count"
+              class="bg-red-500 rounded-full text-xs text-white w-4 h-4 absolute -top-2 -right-2"
+              >0</small
+            >
+          </div>
+        </div>
+      </nav>
+
+      <main class="flex flex-col md:flex-row mx-auto container max-w-6xl">
+        <div class="space-y-4 p-2 w-full max-w-[10rem]">
+          <h2 class="text-2xl">Filter</h2>
+          <h3 class="text-xl">Category</h3>
+          <div id="filters-container" class="text-xl space-y-2">
+            <div>
+              <input type="checkbox" class="check" id="house-plants" />
+              <label for="house-plants">Houseplants</label>
+            </div>
+            <div>
+              <input type="checkbox" class="check" id="air-purifying-plants" />
+              <label for="air-purifying-plants">Air-Purifying Plants</label>
+            </div>
+            <div>
+              <input type="checkbox" class="check" id="succulents-and-cacti" />
+              <label for="succulents-and-cacti">Succulents and Cacti</label>
+            </div>
+            <div>
+              <input type="checkbox" class="check" id="tropical-plant" />
+              <label for="tropical-plant">Tropical Plants</label>
+            </div>
+            <div>
+              <input type="checkbox" class="check" id="orchids" />
+              <label for="orchids">Orchids</label>
+            </div>
+            <div>
+              <input type="checkbox" class="check" id="hanging-plants" />
+              <label for="hanging-plants">Hanging Plants</label>
+            </div>
+            <div>
+              <input type="checkbox" class="check" id="flowering-plants" />
+              <label for="flowering-plants">Flowering Plants</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Products Wrapper -->
+        <div
+          id="products-wrapper"
+          class="w-full max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 sm:grid-col-2 xl:grid-cols-4 gap-6 place-content-center p-4"
+        >
+          <div class="item space-y-2">
+            <div
+              class="bg-gay-100 flex justify-center relative overflow-hidden group cursor-pointer border rounded-xl h-48 md:h-56 sm:h-64"
+            >
+              <img
+                src="/images/red-rose.jpg"
+                alt="potted rose plant"
+                class="w-full h-full object-cover"
+              />
+              <button
+                class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <p>Red Rose Plant</p>
+            <strong>$2.59</strong>
+          </div>
+
+          <div class="item space-y-2">
+            <div
+              class="bg-gray-100 flex justify-center relative overflow-hidden group cursor-pointer border rounded-xl h-48 md:h-56 sm:h-64"
+            >
+              <img
+                src="/images/pain.jpg"
+                alt="peony plant"
+                class="w-full h-full object-cover"
+              />
+              <button
+                class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <p>Peony</p>
+            <strong>$3.59</strong>
+          </div>
+
+          <div class="item space-y-2">
+            <div
+              class="bg-gray-100 flex justify-center relative overflow-hidden group cursor-pointer border rounded-xl h-48 md:h-56 sm:h-64"
+            >
+              <img
+                src="/images/ywet-tuu.jpg"
+                alt="hydrangea plant"
+                class="w-full h-full object-cover"
+              />
+              <button
+                class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <p>Hydrangea</p>
+            <strong>$5.59</strong>
+          </div>
+
+          <div class="item space-y-2">
+            <div
+              class="bg-gray-100 flex justify-center relative overflow-hidden group cursor-pointer border rounded-xl h-48 md:h-56 sm:h-64"
+            >
+              <img
+                src="/images/peace_lily_1.jpg.webp"
+                alt="potted peace lily"
+                class="w-full h-full object-cover"
+              />
+              <button
+                class="status bg-black text-white absolute bottom-0 left-0 right-0 text-center py-2 translate-y-full transition group-hover:translate-y-0"
+              >
+                Add to Cart
+              </button>
+            </div>
+            <p>Peace Lily</p>
+            <strong>$2.59</strong>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
