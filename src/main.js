@@ -1,4 +1,7 @@
+import init from "./init";
+import plants from "./plants";
 import "./style.css";
+
 import { createIcons, Search, ShoppingCart } from "lucide";
 
 createIcons({
@@ -7,3 +10,6 @@ createIcons({
     ShoppingCart,
   },
 });
+
+console.log(plants);
+init();
