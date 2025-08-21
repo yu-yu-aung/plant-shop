@@ -1,29 +1,24 @@
-import { updateCart, filterProducts } from "./handlers";
+import { filterProducts } from "./handlers";
 import plants from "./plants";
-import createPlantElements from "./createPlantElement";
+import createPlantElement from "./createPlantElement";
 
 const init = () => {
-  //Select DOM elements
   const productsWrapper = document.getElementById("products-wrapper");
-
-  //filter plants by category and search input
   const filterContainer = document.getElementById("filters-container");
   const searchInput = document.getElementById("search");
   const checkboxes = document.querySelectorAll(".check");
 
-  //Loop over plants and create an element
   plants.forEach((plant) => {
-    const plantElement = createPlantElements(plant);
+    const plantElement = createPlantElement(plant);
     productsWrapper.appendChild(plantElement);
   });
 
-  //Event listeners for filtering
-  filterContainer.addEventListener("change", () => {
-    filterProducts(searchInput, checkboxes, productsWrapper.children, plants);
-  });
-  searchInput.addEventListener("input", () => {
-    filterProducts(searchInput, checkboxes, productsWrapper.children, plants);
-  });
+  filterContainer.addEventListener("change", () =>
+    filterProducts(searchInput, checkboxes, productsWrapper)
+  );
+  searchInput.addEventListener("input", () =>
+    filterProducts(searchInput, checkboxes, productsWrapper)
+  );
 };
 
 export default init;

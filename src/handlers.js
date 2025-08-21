@@ -1,3 +1,5 @@
+import plants from "./plants.js";
+
 //Initialize cart item count
 let cartItemCount = 0;
 
@@ -27,30 +29,26 @@ export function updateCart(e) {
 }
 
 //function for filtering products
-export function filterProducts(searchInput, checkboxes, plantElements, plants) {
-  //get search input value
-  const searchInputValue = searchInput.value.trim().toLowerCase();
+export function filterProducts(searchInput, checkboxes, productsWrapper) {
+  const searchValue = searchInput.value.trim().toLowerCase();
 
-  //get selected categories
   const selectedCategories = Array.from(checkboxes)
     .filter((check) => check.checked)
     .map((check) => check.id.toLowerCase());
 
-  //Loop through all plant elements
+  const plantElements = productsWrapper.querySelectorAll(".item");
+
   Array.from(plantElements).forEach((plantElement, index) => {
     const plant = plants[index];
 
-    //Check if plant matches search input
-    const matchesSearch =
-      plant.name.toLowerCase().includes(searchInputValue) ||
-      plant.category.toLowerCase().includes(searchInputValue);
+    // normalize categories for comparison
+    const plantCategory = plant.category.toLowerCase();
 
-    //Check if plant matches selected categories
+    const matchesSearch = plant.name.toLowerCase().includes(searchValue);
     const matchesCategory =
       selectedCategories.length === 0 ||
-      selectedCategories.includes(plant.category);
+      selectedCategories.includes(plantCategory);
 
-    //Show or hide plants based on search
     if (matchesSearch && matchesCategory) {
       plantElement.classList.remove("hidden");
     } else {
