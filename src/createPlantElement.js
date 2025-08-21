@@ -1,4 +1,4 @@
-import updateCart from "./handlers.js";
+import {updateCart} from "./handlers.js";
 
 function createPlantElement(plant) {
   const plantElement = document.createElement("div");

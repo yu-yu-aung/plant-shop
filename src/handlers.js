@@ -2,14 +2,14 @@
 let cartItemCount = 0;
 
 //Add or Remove Plant from Cart
-function updateCart(e) {
+export function updateCart(e) {
   const statusEl = e.target;
   const cartCount = document.getElementById("cart-count");
 
   if (statusEl.classList.contains("added")) {
     // Remove from cart
     statusEl.classList.remove("added");
-    statusEl.textContent = "Add to Cart";
+    statusEl.innerText = "Add to Cart";
     statusEl.classList.remove("bg-red-600");
     statusEl.classList.add("bg-black");
     cartItemCount--;
@@ -26,11 +26,35 @@ function updateCart(e) {
   cartCount.innerText = cartItemCount.toString();
 }
 
-//filter plants by category and search input
-const filterContainer = document.getElementById("filters-container");
-const searchInput = document.getElementById("search");
-const checkboxes = document.querySelectorAll(".check");
+//function for filtering products
+export function filterProducts(searchInput, checkboxes, plantElements, plants) {
+  //get search input value
+  const searchInputValue = searchInput.value.trim().toLowerCase();
 
+  //get selected categories
+  const selectedCategories = Array.from(checkboxes)
+    .filter((check) => check.checked)
+    .map((check) => check.id.toLowerCase());
 
+  //Loop through all plant elements
+  Array.from(plantElements).forEach((plantElement, index) => {
+    const plant = plants[index];
 
-export default updateCart;
+    //Check if plant matches search input
+    const matchesSearch =
+      plant.name.toLowerCase().includes(searchInputValue) ||
+      plant.category.toLowerCase().includes(searchInputValue);
+
+    //Check if plant matches selected categories
+    const matchesCategory =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(plant.category);
+
+    //Show or hide plants based on search
+    if (matchesSearch && matchesCategory) {
+      plantElement.classList.remove("hidden");
+    } else {
+      plantElement.classList.add("hidden");
+    }
+  });
+}
