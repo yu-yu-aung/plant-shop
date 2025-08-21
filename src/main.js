@@ -11,5 +11,5 @@ createIcons({
   },
 });
 
-console.log(plants);
+//console.log(plants);
 init();
